@@ -77,6 +77,12 @@
     "@internationalized/date": "^3.7.0"
   },
   "devDependencies": {
+    "@babel/preset-env": "^7.28.5",
+    "@babel/preset-react": "^7.28.5",
+    "@babel/preset-typescript": "^7.28.5",
+    "@testing-library/jest-dom": "^6.9.1",
+    "@testing-library/react": "^16.3.0",
+    "@types/jest": "^30.0.0",
     "@types/js-cookie": "^3.0.6",
     "@types/node": "^20",
     "@types/papaparse": "^5.3.16",
@@ -86,8 +92,11 @@
     "autoprefixer": "^10.4.21",
     "eslint": "^8",
     "eslint-config-next": "15.0.1",
+    "jest": "^30.2.0",
+    "jest-environment-jsdom": "^30.2.0",
     "postcss": "^8",
     "tailwindcss": "^3.4.1",
+    "ts-jest": "^29.4.5",
     "typescript": "^5"
   }
 }

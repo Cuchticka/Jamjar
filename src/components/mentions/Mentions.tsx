@@ -96,4 +96,6 @@ export function cleanMentionsHtml(html: string) {
   return cleanedHtml;
 }
 
+export { extractLetter, getMentionType, getMentionText };
+
 export default Mentions;
