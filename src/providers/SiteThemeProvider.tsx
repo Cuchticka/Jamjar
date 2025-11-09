@@ -10,6 +10,7 @@ import { SiteThemeType } from "@/types/SiteThemeType";
 import { createContext, useContext, useEffect, useState } from "react";
 import Cookies from "js-cookie";
 import { BASE_URL } from "@/requests/config";
+import React from "react";
 
 type ColorsMap = SiteThemeType["colors"];
 
@@ -34,7 +35,8 @@ export function SiteThemeProvider({ children }: { children: React.ReactNode }) {
   });
   const [previewedSiteTheme, setPreviewedSiteThemeBacking] =
     useState<SiteThemeType | null>(null);
-  const [allSiteThemes, setAllSiteThemes] = useState<SiteThemeType[]>([]);
+  const [allSiteThemes, setAllSiteThemes] = React.useState<any[]>([]);
+  
 
   async function readThemeFiles() {
     const res = await fetch(`${BASE_URL}/site-themes`);
@@ -53,7 +55,7 @@ export function SiteThemeProvider({ children }: { children: React.ReactNode }) {
   }, []);
 
   useEffect(() => {
-    if (allSiteThemes.length == 0) return;
+    if (!Array.isArray(allSiteThemes) || allSiteThemes.length === 0) return;
 
     const currentTheme = Cookies.get("theme");
     const match = allSiteThemes.find((t) => t.name === currentTheme);
@@ -93,7 +95,7 @@ export function SiteThemeProvider({ children }: { children: React.ReactNode }) {
       value={{
         siteTheme: effectiveTheme,
         colors: effectiveTheme.colors,
-        allSiteThemes: allSiteThemes.filter((theme) => !theme.hidden),
+        allSiteThemes: Array.isArray(allSiteThemes) ? allSiteThemes.filter((theme) => !theme.hidden) : [],
         setSiteTheme,
         setPreviewedSiteTheme,
       }}

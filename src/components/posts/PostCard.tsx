@@ -21,6 +21,7 @@ import { Chip } from "@/framework/Chip";
 import Text from "@/framework/Text";
 import { useTranslations } from "next-intl";
 import { cleanMentionsHtml } from "../mentions/Mentions";
+import React from "react";
 
 export default function PostCard({
   post,
@@ -101,7 +102,7 @@ export default function PostCard({
                 </p>
               </div>
             </div>
-            <Button icon="plus" onClick={() => setMinimized(false)}></Button>
+            <Button icon="plus" aria-label="plus" onClick={() => setMinimized(false)}></Button>
           </div>
         ) : (
           <div className="w-full">
@@ -124,7 +125,7 @@ export default function PostCard({
               >
                 <p className="text-2xl">{post.title}</p>
               </Link>
-              <Button icon="minus" onClick={() => setMinimized(true)}></Button>
+              <Button icon="minus" aria-label="minus" onClick={() => setMinimized(true)}></Button>
             </div>
 
             <div

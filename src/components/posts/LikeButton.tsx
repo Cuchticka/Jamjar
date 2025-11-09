@@ -6,6 +6,7 @@ import { useState } from "react";
 import { postLike } from "@/requests/like";
 import { Button } from "@/framework/Button";
 import { addToast } from "@heroui/react";
+import React from "react";
 
 export default function LikeButton({
   likes,

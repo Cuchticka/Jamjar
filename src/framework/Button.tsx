@@ -1,6 +1,7 @@
 "use client";
 
-import * as React from "react";
+import React from "react";
+//import * as React from "react";
 import Link from "next/link";
 import { useTheme } from "@/providers/SiteThemeProvider";
 import { ExternalLink, Loader2 } from "lucide-react";

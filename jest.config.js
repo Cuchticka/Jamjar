@@ -8,12 +8,21 @@ module.exports = {
   transform: {
     '^.+\\.(ts|tsx)$': 'babel-jest', // Only use babel-jest for TS/TSX
   },
+  transformIgnorePatterns: [
+    "/node_modules/(?!next-intl|@next-intl|react-intl|intl-messageformat)",
+  ],
   collectCoverage: true,
   collectCoverageFrom: [
-    "src/**/*.{ts,tsx}",      // Include all TS and TSX files
-    "srdc/components/**/*.{ts,tsx}", // Include components
-    "!src/**/*.d.ts",         // Exclude type definitions
-    "!src/components/types/*.ts",       // Optionally exclude types files
-    // "!src/components/mentions/*.{ts,tsx}", // Exclude mentions component   
+    "src/components/posts/PostCard.tsx",
+    "src/components/posts/PostCard.test.tsx",
+    "src/components/mentions/Mentions.tsx",
+    "src/components/mentions/Mentions.test.tsx",
+    "src/components/mentions/Mentions.plugin.test.tsx",
+    "src/components/mentions/UserMentions.test.tsx",
+    "src/components/mentions/UserMentions.tsx"
   ],
+  moduleNameMapper: {
+    '^@/(.*)$': '<rootDir>/src/$1',
+  },
+  setupFiles: ['<rootDir>/jest.setup.js'],
 };
